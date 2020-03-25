@@ -1,1 +1,42 @@
- <html><body><p>Hello World</p></body></html>
+---
+title: "Peer-graded Assignment: R Markdown and Leaflet"
+author: "Anna Kozina"
+date: "25 03 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## R Markdown
+
+Create a web page using R Markdown that features a map created with Leaflet.
+
+Host your webpage on either GitHub Pages, RPubs, or NeoCities.
+
+Your webpage must contain the date that you created the document, and it must contain a map created with Leaflet. We would love to see you show off your creativity!
+
+```{r chunk 1}
+if(!require(leaflet)){
+  install.packages("leaflet")
+  library(leaflet)
+}
+library("leaflet")
+
+
+my_map <- leaflet() %>% addTiles() 
+my_map <- my_map %>% addMarkers(lat=43.6689929, lng= 40.260989162422234, popup="I work here")
+my_map
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
